@@ -1,0 +1,155 @@
+/* AK INTERNATIONAL V4.73 — Design 02: immersive full-width hero with visible tracking.
+   This file applies only to the EN/AR homepage; all tools and internal pages stay unchanged. */
+:root{--ak-hero-ink:#05233e;--ak-hero-gold:#ffb922;--ak-hero-sky:#85d6f2}
+/* Keep the current white pill navigation, emphasize the tracking tool. */
+.site-header .site-nav{border-color:rgba(190,216,229,.67);background:rgba(255,255,255,.97);box-shadow:0 15px 38px rgba(0,20,44,.22)}
+.nav-actions .nav-track{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:#056cb8;color:#fff;border:1px solid #056cb8;
+  border-radius:13px;box-shadow:0 6px 18px rgba(0,100,186,.22);
+  font-size:clamp(13px,1.14vw,17px);padding:10px 15px;min-height:48px;
+}
+.nav-actions .nav-track .hero-track-icon{flex:none;width:19px;height:19px}
+.nav-actions .nav-track:hover,.nav-actions .nav-track:focus-visible{background:#034f8a;color:#fff;border-color:#034f8a}
+.nav-actions .nav-track::after{opacity:.16}
+.site-header .nav-cta{color:#08213a;background:#ffbb25;box-shadow:0 8px 18px rgba(210,131,8,.2)}
+.site-header .nav-cta:hover{background:#ffc848;color:#08213a}
+
+/* Original supplied globe-and-ship image; no fabricated extensions or blurred layers. */
+.hero{
+  min-height:0;padding:166px 0 40px;overflow:visible;isolation:isolate;
+  background:#031e3d;color:#fff;
+}
+.hero::before{display:none!important}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(90deg,rgba(2,23,48,.98) 0%,rgba(2,26,55,.94) 25%,rgba(2,29,58,.81) 42%,rgba(3,31,60,.34) 63%,rgba(2,25,51,.12) 100%),
+    linear-gradient(0deg,rgba(3,23,48,.95) 0%,rgba(3,24,49,.13) 40%,rgba(3,24,49,.16) 100%),
+    url('../images/hero/ak-global-logistics.webp');
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:100% 100%,100% 100%,auto 78%;
+  background-position:center,center,right top -36px;
+}
+.hero-world{display:none!important}
+.hero .hero-inner{position:relative;z-index:1}
+.hero-copy{max-width:765px;margin:0;text-align:left}
+.hero-kicker{margin-bottom:20px;color:#f5c362;font-size:12px;letter-spacing:.145em}
+.hero-kicker>span{width:27px;height:3px;border-radius:0;background:var(--ak-hero-gold);box-shadow:none}
+.hero h1{margin:0;max-width:765px;font-size:clamp(41px,4vw,60px);line-height:1.10;letter-spacing:-.035em;color:#fff;text-wrap:balance}
+.hero h1>.hero-title-accent{margin-top:10px;font-size:.69em;line-height:1.25;color:var(--ak-hero-gold)}
+.hero-copy>p{max-width:630px;margin:21px 0 0;color:#e2edf8;font-size:clamp(14px,1.14vw,17px);font-weight:450;line-height:1.7;text-shadow:0 1px 2px rgba(0,0,0,.22)}
+.hero-primary-actions{display:flex;flex-wrap:wrap;align-items:center;gap:13px;margin:27px 0 0}
+.hero-primary-actions>a{min-height:49px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 21px;border-radius:14px;font-size:15px;font-weight:850;line-height:1.2;text-decoration:none;transition:transform .18s,background .18s,border-color .18s}
+.hero-primary-actions>a:hover{transform:translateY(-2px)}
+.hero-primary-actions>a:focus-visible{outline:3px solid var(--ak-hero-gold);outline-offset:3px}
+.hero-action-quote{background:var(--ak-hero-gold);color:#08213a;box-shadow:0 10px 22px rgba(4,19,39,.24)}
+.hero-action-quote:hover{background:#ffca4c}
+.hero-action-track{border:1.4px solid rgba(207,235,255,.93);color:#fff;background:rgba(4,45,80,.4);backdrop-filter:blur(8px)}
+.hero-action-track:hover{background:rgba(8,105,174,.68);border-color:#fff}
+
+/* Preserve all existing selector logic: only presentation changes. */
+.hero .quick-quote{
+  position:relative;z-index:5;width:100%;margin:43px 0 0;padding:14px 16px;
+  border-radius:25px;border:1px solid rgba(226,239,251,.95);
+  background:rgba(255,255,255,.985);color:#0e3148;
+  box-shadow:0 22px 48px rgba(0,12,35,.28);
+}
+.hero .quick-submit{background:var(--ak-hero-gold);color:#08213a;box-shadow:none}
+.hero .quick-submit:hover{background:#ffca4c;color:#08213a}
+.hero .quick-modes input:checked+span{background:#075184;color:#fff}
+.hero .quick-label{color:#275269}
+.hero .quick-quote-cell{min-width:0}
+.hero-tracking-footlink{display:table;width:max-content;max-width:100%;margin:18px auto 0;color:#e9f4fc;font-size:13px;text-align:center;text-decoration:none;line-height:1.65}
+.hero-tracking-footlink strong{color:#ffcc54;text-decoration:underline;text-underline-offset:4px}
+.hero-tracking-footlink:hover strong{color:#fff}
+.hero-tracking-footlink:focus-visible{outline:2px solid #ffcc54;outline-offset:5px}
+.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:min(790px,100%);margin:28px auto 0;padding:15px 0 0;border-top:1px solid rgba(223,241,255,.24);color:#fff}
+.hero-proof-item{display:flex;align-items:center;justify-content:center;gap:12px;text-align:start}
+.hero-proof-item:not(:last-child){border-right:1px solid rgba(235,247,255,.22)}
+.hero-proof-item strong{font-size:clamp(23px,2.2vw,33px);font-weight:850;color:#fff;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.hero-proof-item span{max-width:110px;font-size:12px;line-height:1.35;color:#cfdeeb;font-weight:600}
+/* Arabic edition: read from the right, place the photograph opposite the text. */
+html[dir="rtl"] .hero::after{
+  background-image:
+    linear-gradient(270deg,rgba(2,23,48,.98) 0%,rgba(2,26,55,.94) 25%,rgba(2,29,58,.81) 42%,rgba(3,31,60,.34) 63%,rgba(2,25,51,.12) 100%),
+    linear-gradient(0deg,rgba(3,23,48,.95) 0%,rgba(3,24,49,.13) 40%,rgba(3,24,49,.16) 100%),
+    url('../images/hero/ak-global-logistics.webp');
+  background-position:center,center,left center;
+}
+html[dir="rtl"] .hero-copy{text-align:right}
+html[dir="rtl"] .hero h1{max-width:760px;line-height:1.28;letter-spacing:0}
+html[dir="rtl"] .hero h1>.hero-title-accent{font-size:.68em;line-height:1.45}
+html[dir="rtl"] .hero-copy>p{margin-inline:0;line-height:1.85}
+html[dir="rtl"] .hero-proof-item:not(:last-child){border-right:0;border-left:1px solid rgba(235,247,255,.22)}
+
+@media(max-width:1100px){
+  .hero{padding-top:142px;padding-bottom:34px}
+  .hero h1{font-size:clamp(38px,4.35vw,55px)}
+  .hero .quick-quote{width:min(850px,100%);margin-inline:auto}
+  .hero::after{background-size:100% 100%,100% 100%,auto 100%}
+}
+@media(max-width:900px){
+  .hero{padding-top:124px;padding-bottom:38px}
+  .hero-copy{max-width:640px}
+  .hero .quick-quote{max-width:680px;margin-top:32px}
+  .hero-proof{max-width:650px}
+  .hero::after{
+    background-image:
+      linear-gradient(90deg,rgba(2,23,48,.95),rgba(2,28,57,.77) 63%,rgba(2,24,49,.32)),
+      linear-gradient(0deg,rgba(3,23,48,.95),transparent 55%),
+      url('../images/hero/ak-global-logistics.webp');
+  }
+  html[dir="rtl"] .hero::after{
+    background-image:
+      linear-gradient(270deg,rgba(2,23,48,.95),rgba(2,28,57,.77) 63%,rgba(2,24,49,.32)),
+      linear-gradient(0deg,rgba(3,23,48,.95),transparent 55%),
+      url('../images/hero/ak-global-logistics.webp');
+  }
+}
+@media(max-width:640px){
+  .site-nav{background:#fff}
+  .nav-actions .nav-track{min-height:40px;gap:5px;padding:7px 9px;font-size:12px;border-radius:10px}
+  .nav-actions .nav-track .hero-track-icon{width:16px;height:16px}
+  .hero{
+    padding:120px 0 25px;
+    background:#031e3d;
+  }
+  /* Show the entire user-supplied scene at the top on narrow screens. */
+  .hero::after{
+    inset:80px 0 auto;height:calc(100vw * .6667 + 36px);max-height:330px;
+    background-image:linear-gradient(0deg,#031e3d 0%,rgba(3,30,61,0) 30%),url('../images/hero/ak-global-logistics.webp');
+    background-position:center bottom,center top;
+    background-size:100% 100%,100% auto;
+    background-repeat:no-repeat;
+  }
+  html[dir="rtl"] .hero::after{
+    background-image:linear-gradient(0deg,#031e3d 0%,rgba(3,30,61,0) 30%),url('../images/hero/ak-global-logistics.webp');
+    background-position:center bottom,center top;
+    background-size:100% 100%,100% auto;
+  }
+  .hero .hero-inner{padding-top:clamp(168px,45vw,255px)}
+  .hero-copy,.hero-copy>p{max-width:100%}
+  .hero-kicker{font-size:10px;margin-bottom:13px}
+  .hero-kicker>span{width:20px;height:3px}
+  .hero h1{font-size:clamp(31px,8.4vw,42px);line-height:1.16}
+  .hero h1>.hero-title-accent{font-size:.78em;line-height:1.31}
+  .hero-copy>p{margin-top:15px;font-size:13.5px;line-height:1.64}
+  .hero-primary-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px}
+  .hero-primary-actions>a{font-size:12px;padding:11px 8px;gap:6px;border-radius:11px;min-height:45px}
+  .hero-primary-actions svg{width:16px;height:16px;flex:none}
+  .hero .quick-quote{margin-top:25px;border-radius:18px;padding:11px}
+  .hero-tracking-footlink{font-size:12px;margin-top:15px}
+  .hero-proof{gap:3px;margin-top:20px;padding-top:13px}
+  .hero-proof-item{display:flex;flex-direction:column;gap:3px;text-align:center;padding:0 3px}
+  .hero-proof-item strong{font-size:23px}
+  .hero-proof-item span{font-size:10px}
+  html[dir="rtl"] .hero h1{font-size:clamp(29px,7.9vw,41px)}
+  html[dir="rtl"] .hero h1>.hero-title-accent{font-size:.75em}
+}
+@media(max-width:365px){
+  .nav-actions .nav-track .hero-track-icon{display:none}
+  .nav-actions .nav-track{font-size:11px;padding:7px 8px}
+  .hero-primary-actions>a{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.hero-primary-actions>a{transition:none}.hero-primary-actions>a:hover{transform:none}}
