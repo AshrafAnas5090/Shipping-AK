@@ -1,0 +1,185 @@
+/* AK INTERNATIONAL V4.77 — Approved bilingual hero composition.
+   Layout only: no changes to carrier tracking, quotation, language or backend logic.
+   Desktop: same original photo, opposite sides without mirroring map geography.
+   Mobile: full image width above content, no duplicate/blurred image layers. */
+
+/* Hero visual is an independent, decorative layer so RTL text height never changes
+   image positioning or the starting level of the shipment form. */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:0;
+  padding:124px 0 38px;
+  background:linear-gradient(180deg,#052b4f 0%,#041e3a 65%,#031b35 100%);
+  color:#fff;
+}
+.hero::before,.hero::after{display:none!important}
+.hero .hero-world{display:none!important}
+.hero-media{
+  position:absolute;
+  z-index:0;
+  top:49px;
+  right:0;
+  left:auto;
+  width:min(73vw,1150px);
+  aspect-ratio:1264 / 843;
+  background-image:url('../images/hero/ak-global-logistics.webp');
+  background-size:100% 100%;
+  background-position:center;
+  background-repeat:no-repeat;
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.28) 13%,#000 36%,#000 100%);
+  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.28) 13%,#000 36%,#000 100%);
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,#031b35 0%,rgba(3,27,53,0) 10%);
+}
+html[dir="rtl"] .hero-media{
+  right:auto;left:0;
+  -webkit-mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.28) 13%,#000 36%,#000 100%);
+  mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.28) 13%,#000 36%,#000 100%);
+}
+.hero .hero-inner{position:relative;z-index:1}
+.hero-top{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  min-height:clamp(480px,40vw,560px);
+  padding-block:20px 24px;
+}
+.hero .hero-copy{
+  width:min(53%,700px);
+  max-width:700px;
+  margin:0;
+  text-align:start;
+}
+.hero .hero h1,.hero h1{
+  max-width:100%;
+  margin:0;
+  color:#fff;
+  font-size:clamp(42px,4vw,57px);
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.03em;
+  text-wrap:balance;
+}
+.hero h1 .hero-title-accent{
+  display:block;
+  margin-top:9px;
+  font-size:.75em;
+  line-height:1.24;
+  color:#ffbf27;
+}
+.hero .hero-copy>p{
+  max-width:620px;
+  margin:24px 0 0;
+  color:#e5eff8;
+  font-size:clamp(15px,1.17vw,17px);
+  font-weight:500;
+  line-height:1.73;
+  text-shadow:0 1px 2px rgba(0,16,36,.25);
+}
+.hero .hero-primary-actions{
+  justify-content:flex-start;
+  margin:29px 0 0;
+  gap:14px;
+}
+.hero .hero-primary-actions>a{
+  min-height:53px;
+  border-radius:14px;
+  padding:12px 23px;
+  font-size:15px;
+}
+.hero .hero-action-quote{background:#ffbb25;color:#09243d}
+.hero .hero-action-track{color:#fff;border-color:rgba(228,244,255,.9)}
+/* Fixed visual region above the quick quote in both locales. */
+.hero .quick-quote{
+  width:100%;margin:0 auto;
+  border-radius:25px;
+  background:#fff;
+  border-color:rgba(208,228,243,.9);
+  box-shadow:0 24px 54px rgba(0,13,32,.26);
+}
+.hero .quick-submit{background:#ffb922;color:#062846}
+.hero .quick-submit:hover{background:#ffca4a}
+.hero .hero-tracking-footlink{margin-top:18px}
+.hero .hero-proof{margin-top:26px}
+
+/* Arabic: keep the full original ship and globe, move them to the opposite side,
+   and align content to RTL without flipping/reversing the world map. */
+html[dir="rtl"] .hero .hero-copy{width:min(53%,700px);text-align:right}
+html[dir="rtl"] .hero h1{
+  font-family:"Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;
+  font-size:clamp(42px,3.75vw,55px);
+  line-height:1.37;
+  letter-spacing:0;
+}
+html[dir="rtl"] .hero h1 .hero-title-accent{
+  font-size:.76em;line-height:1.43;margin-top:9px;
+}
+html[dir="rtl"] .hero .hero-copy>p{
+  max-width:610px;
+  font-size:clamp(15px,1.14vw,17px);
+  line-height:1.85;
+  margin:22px 0 0;
+}
+html[dir="rtl"] .hero .hero-primary-actions{justify-content:flex-start}
+
+@media(max-width:1100px){
+  .hero{padding-top:112px}
+  .hero-top{min-height:460px}
+  .hero-media{top:70px;width:75vw}
+  .hero .hero-copy,html[dir="rtl"] .hero .hero-copy{width:55%}
+  .hero h1{font-size:clamp(36px,4.3vw,49px)}
+  html[dir="rtl"] .hero h1{font-size:clamp(35px,4vw,48px)}
+}
+@media(max-width:900px){
+  .hero{padding-top:99px}
+  .hero-top{min-height:435px}
+  .hero-media{top:82px;width:79vw}
+  .hero .hero-copy,html[dir="rtl"] .hero .hero-copy{width:57%}
+  .hero h1{font-size:clamp(33px,4.65vw,43px)}
+  html[dir="rtl"] .hero h1{font-size:clamp(32px,4.4vw,42px)}
+  .hero .hero-copy>p,html[dir="rtl"] .hero .hero-copy>p{font-size:14px}
+  .hero .hero-primary-actions>a{min-height:46px;padding:10px 14px;font-size:13px}
+}
+@media(max-width:640px){
+  .hero{padding:86px 0 27px;background:#031e3d}
+  .hero-media,html[dir="rtl"] .hero-media{
+    top:77px;left:0;right:0;width:100%;
+    aspect-ratio:1264 / 843;
+    background-size:100% 100%;background-position:center;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 74%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 74%,transparent 100%);
+  }
+  .hero-media::after{display:none}
+  /* Remove V4.73 mobile extra inset: art and content must not create a blank band. */
+  .hero .hero-inner{padding-top:0}
+  .hero-top{
+    min-height:0;
+    padding:clamp(218px,65vw,350px) 0 0;
+  }
+  .hero .hero-copy,html[dir="rtl"] .hero .hero-copy{
+    width:100%;max-width:100%;text-align:start;
+  }
+  .hero h1{font-size:clamp(30px,8.05vw,42px);line-height:1.16}
+  .hero h1 .hero-title-accent{font-size:.78em;line-height:1.34;margin-top:8px}
+  html[dir="rtl"] .hero h1{font-size:clamp(30px,7.9vw,39px);line-height:1.33}
+  html[dir="rtl"] .hero h1 .hero-title-accent{font-size:.77em;line-height:1.45}
+  .hero .hero-copy>p,html[dir="rtl"] .hero .hero-copy>p{
+    font-size:13.5px;line-height:1.75;margin-top:15px;
+  }
+  .hero .hero-primary-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:19px 0 0}
+  .hero .hero-primary-actions>a{min-width:0;min-height:45px;padding:10px 7px;font-size:12px;border-radius:11px}
+  .hero .quick-quote{margin-top:24px;padding:11px;border-radius:19px}
+  .hero .hero-tracking-footlink{margin-top:16px}
+  .hero .hero-proof{margin-top:20px}
+}
+@media(max-width:360px){
+  .hero .hero-primary-actions>a{font-size:11px}
+  html[dir="rtl"] .hero h1{font-size:29px}
+}
+@media(prefers-reduced-motion:reduce){.hero .hero-primary-actions>a{transition:none}}
